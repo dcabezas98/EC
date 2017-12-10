@@ -75,7 +75,6 @@ que la siguiente instrucción empieza en la 0x0804807e.
 
 ```
  => 0x08048079 <+5>:	mov    $0x1,%ebx
-	0x0804807e <+10>:	mov    $0x8049097,%ecx
 ```
 
 **7)**
@@ -219,7 +218,8 @@ de la variable `resultado`, de 64 bits, y los acarreos en la más significativa.
 ```assembly
 .section .data
 
-lista0:		.int 0x10000000, 0x20000000, 0x40000000, 0x80000000, 0x10000000, 0x20000000, 0x40000000, 0x80000000	   # Declaro 4 listas de longitud 8
+# Declaro 4 listas de longitud 8
+lista0:		.int 0x10000000, 0x20000000, 0x40000000, 0x80000000, 0x10000000, 0x20000000, 0x40000000, 0x80000000	   
 lista1:		.int 0x10000000, 0x20000000, 0x40000000, 0x80000000, 0x10000000, 0x20000000, 0x40000000, 0x80000000
 lista2:		.int 0x10000000, 0x20000000, 0x40000000, 0x80000000, 0x10000000, 0x20000000, 0x40000000, 0x80000000
 lista3:		.int 0x10000000, 0x20000000, 0x40000000, 0x80000000, 0x10000000, 0x20000000, 0x40000000, 0x80000000
@@ -239,14 +239,14 @@ main:	.global main
 	mov $0, %edx		# Inicializo EDX a 0, en el guardaré la parte más significativa del resultado
 	mov $lista0, %ebx	# Guardo la primera de las 4 listas en EBX
 	mov longlista, %ecx	# Guardo la longitud de la lista en ECX
-	call suma		    # Sumo los elementos de la primera lista y almaceno el resultado en EDX:EAX
+	call suma		# Sumo los elementos de la primera lista y almaceno el resultado en EDX:EAX
 	mov $lista1, %ebx	# Guardo la segunda lista en EBX
-	call suma		    # Sumo los elementos de la segunda lista a lo que tenía en EDX:EAX
+	call suma		# Sumo los elementos de la segunda lista a lo que tenía en EDX:EAX
 	mov $lista2, %ebx	# Guardo la tercera lista en EBX
-	call suma		    # Sumo los elementos de la tercera lista a lo que tenía en EDX:EAX
+	call suma		# Sumo los elementos de la tercera lista a lo que tenía en EDX:EAX
 	mov $lista3, %ebx	# Guardo la última lista en EBX
-	call suma		    # Sumo los elementos de la última lista a lo que tenía en EDX:EAX
-	mov %eax, resultado	    # Muevo EAX a la parte menos significativa de resultado
+	call suma		# Sumo los elementos de la última lista a lo que tenía en EDX:EAX
+	mov %eax, resultado	# Muevo EAX a la parte menos significativa de resultado
 	mov %edx, resultado+4	# Muevo EDX a la parte más significativa de resultado
 
 	mov $1, %eax    # Voy a llamar a exit
@@ -254,17 +254,17 @@ main:	.global main
 	int $0x80       # Llamada a exit
 
 suma:
-	push %esi		    # Guardo el contenido de ESI en la pila, voy a usarlo como contador
+	push %esi		# Guardo el contenido de ESI en la pila, voy a usarlo como contador
 	mov $0, %esi		# Lo inicializo a 0 
 	
 bucle:
-	add (%ebx,%esi,4), %eax		# Sumo el elemento de la lista a EAX
+	add (%ebx,%esi,4), %eax		    # Sumo el elemento de la lista a EAX
 	adc $0, %edx			    # Sumo el acarreo (si lo hay) en EDX
 	inc       %esi			    # Incremento el contador del bucle
 	cmp  %esi, %ecx			    # Comparo con la longitud de la lista (en ECX) para ver si he llegado al final de la misma
-	jne bucle			        # Si no he llegado al final, hago otra iteración del bucle
+	jne bucle			    # Si no he llegado al final, hago otra iteración del bucle
 
-	pop %esi			# Devuelvo a ESI su valor original
+	pop %esi			    # Devuelvo a ESI su valor original
 	ret
 ```
 
@@ -322,9 +322,9 @@ main:	.global main
 
 	mov longlista, %ecx
 	mov    $lista, %ebx	   # Muevo la lista a EBX
-	call suma		       # Sumo los elementos de la lista y almaceno el resultado en EDI:EAX
-    mov %edi, resultado+4    # Muevo EDI a la parte más significativa de resultado
-	mov %eax, resultado	     # Muevo EAX a la parte menos significativa de resultado
+	call suma		   # Sumo los elementos de la lista y almaceno el resultado en EDI:EAX
+    mov %edi, resultado+4          # Muevo EDI a la parte más significativa de resultado
+	mov %eax, resultado	   # Muevo EAX a la parte menos significativa de resultado
 	
 	mov $1, %eax
 	mov $0, %ebx
@@ -341,7 +341,7 @@ suma:
 	
 bucle:
 	mov (%ebx,%ecx,4), %eax		# Muevo el elemento de la lista a EAX
-	cdq 				        # Amplío EAX en signo usando EDX
+	cdq 				# Amplío EAX en signo usando EDX
 	add %eax, %esi			# Sumo el contenido de EAX a ESI
 	adc %edx, %edi			# Sumo la ampliación en de EAX (en EDX) y el acarreo a EDI
 	inc       %ecx
@@ -434,7 +434,7 @@ main:	.global main	# Inicio del programa
 	mov    $lista, %ebx
 	call suma
 	mov %edi, %edx		# Muevo la parte más significativa de la suma, para tener el resultado en EDX:EAX
-	idiv %ecx		    # Divido EDX:EAX entre la longitud de la lista (conservando el signo)
+	idiv %ecx		# Divido EDX:EAX entre la longitud de la lista (conservando el signo)
 	mov %eax, media		# IDIV almacena el cociente en EAX
 	mov %edx, resto		# y el resto en EDX
 	
