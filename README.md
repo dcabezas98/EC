@@ -34,3 +34,15 @@ Y un informe del tiempo que tarda cada uno en ejecutarse.
 También se incluyen tablas y gráficos (en formato *.ods*) con estadísticas que relacionan los
 tiempos de ejecución de cada algoritmo con distintos niveles de optimización. Y un archivo con 
 cuestiones sobre los programas realizados.
+
+#### Práctica 3: Bomba digital - Desensambladores
+
+La práctica consiste en crear un programa en *C* que solicite una contraseña y un código y simule
+una explosión en el caso de que no sean correctos. Del mismo modo, tan sólo con la información
+del ejecutable compilado sin el flag de depuración *-g*, se debe intentar hallar la contraseña
+y el código de las bombas del resto de compañeros.
+Se incluye:
+
++ **dcabezas_bomb**: Mi bomba, incluye el ejecutable, el código fuente, un pdf donde se explican los pasos sequidos para desactivarla y el desensamblado con *objdump -d*.
++ **MaxiBomb**: Bomba de [@maxisuarez](https://github.com/maxisuarez). Incluye el ejecutable, el pdf con los pasos seguidos para desactivarla y el desensamblado con *objdump -d*.
++ **Bomba_NBA_2015**: Bomba de otro compañero, recomendada por el profesor. Incluye el ejecutable, el pdf con los pasos seguidos para desactivarla y el desensamblado con *objdump -d*.
