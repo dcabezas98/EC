@@ -48,8 +48,6 @@ Breakpoint 1, 0x08048683 in main ()
 Hacemos un volcado de memoria y ahí la tenemos, la contraseña es
 **holaquetal**.
 
-\newpage
-
 Para el código, notamos que se realiza una comparación en la dirección
 0x8048719 antes de la llamada a *boom*.
 
