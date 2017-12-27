@@ -21,7 +21,7 @@ desbordamiento.
 - **media.s** realiza la media de los elementos de una lista de enteros con
 signo de 32bits representados en complemento a 2.
 
-#### Práctica 3: Programación mixta C-ASM
+#### Práctica 2: Programación mixta C-ASM
 
 Incluye dos programas:
 
