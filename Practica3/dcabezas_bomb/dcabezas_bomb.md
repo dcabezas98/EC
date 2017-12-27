@@ -47,8 +47,6 @@ antes compara los valores de dos registros.
  b49:	e8 e2 fd ff ff       	callq  930 <boom>
 ```
 
-\newpage
-
 Ponemos un código que sepamos reconocer y consultamos ambos registros.
 
 ```
