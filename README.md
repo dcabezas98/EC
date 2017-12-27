@@ -43,6 +43,6 @@ del ejecutable compilado sin el flag de depuración *-g*, se debe intentar halla
 y el código de las bombas del resto de compañeros.
 Se incluye:
 
-+ **dcabezas_bomb**: Mi bomba, incluye el ejecutable, el código fuente, un pdf donde se explican los pasos sequidos para desactivarla y el desensamblado con *objdump -d*.
-+ **MaxiBomb**: Bomba de [@maxisuarez](https://github.com/maxisuarez). Incluye el ejecutable, el pdf con los pasos seguidos para desactivarla y el desensamblado con *objdump -d*.
-+ **Bomba_NBA_2015**: Bomba de otro compañero, recomendada por el profesor. Incluye el ejecutable, el pdf con los pasos seguidos para desactivarla y el desensamblado con *objdump -d*.
++ **dcabezas_bomb**: Mi bomba, incluye el ejecutable, el código fuente, un archivo en markdown donde se explican los pasos sequidos para desactivarla y el desensamblado con *objdump -d*.
++ **MaxiBomb**: Bomba de [@maxisuarez](https://github.com/maxisuarez). Incluye el ejecutable, el archivo en markdown con los pasos seguidos para desactivarla y el desensamblado con *objdump -d*.
++ **Bomba_NBA_2015**: Bomba de otro compañero, recomendada por el profesor. Incluye el ejecutable, el markdown con los pasos seguidos para desactivarla y el desensamblado con *objdump -d*.
